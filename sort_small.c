@@ -6,7 +6,7 @@
 /*   By: yevkahar <yevkahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 15:54:17 by yevkahar          #+#    #+#             */
-/*   Updated: 2025/04/02 16:20:43 by yevkahar         ###   ########.fr       */
+/*   Updated: 2025/04/04 14:59:00 by yevkahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	sort_four(t_stack_node **a, t_stack_node **b)
 	smallest = find_min_index(*a);
 	
 	while ((*a)->index != smallest)
-	ra(a);
+		ra(a);
 	pb(a, b);
 	sort_three(a);
 	pa(a, b);
@@ -62,14 +62,23 @@ void	sort_four(t_stack_node **a, t_stack_node **b)
 
 void	sort_five(t_stack_node **a, t_stack_node **b)
 {
-	int smallest;
-	smallest = find_min_index(*a);
+	int	pivot;
 	
-	while ((*a)->index != smallest)
-	ra(a);
-	pb(a, b);
-	sort_four(a, b);
-	pa(a, b);
+	pivot = stack_length(*a) / 2;
+	while (stack_length(*a) > 3)
+	{
+		if ((*a)->index < pivot)
+			pb(a, b);
+		else
+			ra(a);
+	}
+	sort_three(a);
+	while (*b)
+	{
+		pa(a, b);
+		if ((*a)->data > (*a)->next->data)
+			sa(a);
+	}
 }
 
 void	sort_small(t_stack_node **stack_a, t_stack_node **stack_b)
@@ -85,4 +94,9 @@ void	sort_small(t_stack_node **stack_a, t_stack_node **stack_b)
 		sort_four(stack_a, stack_b);
 	else if (size == 5)
 		sort_five(stack_a, stack_b);
+	else
+	{
+		push_to_b(stack_a, stack_b);
+		sort_stacks(stack_a, stack_b);
+	}
 }

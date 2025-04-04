@@ -6,7 +6,7 @@
 /*   By: yevkahar <yevkahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 14:02:52 by yevkahar          #+#    #+#             */
-/*   Updated: 2025/04/02 16:13:16 by yevkahar         ###   ########.fr       */
+/*   Updated: 2025/04/04 14:48:33 by yevkahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,11 @@ void			print_stack(t_stack_node *stack);
 void			push_to_b(t_stack_node **a, t_stack_node **b);
 void			find_target_position(t_stack_node *stack_a,
 					t_stack_node *stack_b);
+int				is_sorted(t_stack_node *stack);
+//main
+void			free_stack(t_stack_node **stack);
+void			execute_move_a(t_stack_node **a, int target_pos);
+void			execute_move_b(t_stack_node **b, t_stack_node *cheapest);
+void			sort_stacks(t_stack_node **a, t_stack_node **b);
+int				main(int ac, char **av);
 #endif

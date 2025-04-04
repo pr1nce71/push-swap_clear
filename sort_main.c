@@ -6,7 +6,7 @@
 /*   By: yevkahar <yevkahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 18:16:27 by yevkahar          #+#    #+#             */
-/*   Updated: 2025/04/02 16:13:00 by yevkahar         ###   ########.fr       */
+/*   Updated: 2025/04/04 14:48:46 by yevkahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,17 @@ void	print_stack(t_stack_node *stack)
 		stack = stack->next;
 	}
 	printf("\n");
+}
+
+int	is_sorted(t_stack_node *stack)
+{
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->data > stack->next->data)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

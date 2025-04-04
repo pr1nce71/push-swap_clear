@@ -6,7 +6,7 @@
 /*   By: yevkahar <yevkahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:59:13 by yevkahar          #+#    #+#             */
-/*   Updated: 2025/04/02 16:08:06 by yevkahar         ###   ########.fr       */
+/*   Updated: 2025/04/04 14:47:46 by yevkahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ stack_a return_target_node(stack_a stack_a, int data){
 stack_a->index = 0;
 */
 
-static void	free_stack(t_stack_node **stack)
+void	free_stack(t_stack_node **stack)
 {
 	t_stack_node	*temp;
 
@@ -71,7 +71,7 @@ static void	free_stack(t_stack_node **stack)
 	}
 }
 
-static void	execute_move_a(t_stack_node **a, int target_pos)
+void	execute_move_a(t_stack_node **a, int target_pos)
 {
 	t_stack_node	*current;
 	int				size;
@@ -90,7 +90,7 @@ static void	execute_move_a(t_stack_node **a, int target_pos)
 	}
 }
 
-static void	execute_move_b(t_stack_node **b, t_stack_node *cheapest)
+void	execute_move_b(t_stack_node **b, t_stack_node *cheapest)
 {
 	int	size;
 	int	middle;
@@ -106,7 +106,7 @@ static void	execute_move_b(t_stack_node **b, t_stack_node *cheapest)
 	}
 }
 
-static void	sort_stacks(t_stack_node **a, t_stack_node **b)
+void	sort_stacks(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*cheapest;
 
